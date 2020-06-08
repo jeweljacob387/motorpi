@@ -1,0 +1,20 @@
+<mat-card class="device-card" *ngIf="device">
+    <mat-card-header>
+        <div mat-card-avatar class="device-header-image"></div>
+        <mat-card-title>{{device.type}}</mat-card-title>
+        <mat-card-subtitle>{{device.title}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="state" ngClass="{{stateLoded ? (state ? 'red' : 'green') : 'grey'}}">
+            <strong *ngIf="stateLoded; else loading">{{state ? 'ON' : 'OFF'}}</strong>
+            <ng-template #loading>
+                <strong>Loading..</strong>
+            </ng-template>
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <mat-slide-toggle color="warn" [(ngModel)]="state" (change)="onStateChange()" [disabled]="!stateLoded">
+            Click to turn {{state ? 'Off' : 'On'}} the {{device.type}}
+        </mat-slide-toggle>
+    </mat-card-actions>
+</mat-card>

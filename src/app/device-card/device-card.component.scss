@@ -1,0 +1,27 @@
+.device-card {
+    max-width: 400px;
+    .state {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        color: white;
+        &.red {
+            background-color: red;
+        }
+    
+        &.green {
+            background-color: green;
+        }
+        &.grey {
+            background-color: grey;
+        }
+    }
+      
+    .device-header-image {
+        background-image: url('/assets/images/motor.svg');
+        background-size: cover;
+    }
+
+    
+}
