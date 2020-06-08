@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "rpi-iot-38700": {
+      "hosting": {
+        "motorpi": [
+          "rpi-iot-38700"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "rpi-iot-38700"
+  }
+}
