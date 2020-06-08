@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "motorpi"
+    }
+  },
+  "defaultProject": "motorpi",
+  "cli": {
+    "analytics": "4ae48b7d-552f-4ac1-bda7-3488ba3d4f09"
+  }
 }
