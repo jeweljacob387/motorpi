@@ -26,7 +26,7 @@ export class DeviceStateService {
 
   setAutoMode(type, id, auto) {
     return this.http.post(`${this.apiBaseUrl}/setautomode/${type}/${id}`, { auto }).pipe(
-      timeout(2500),
+      timeout(5000),
       retry(5)
     );
   }

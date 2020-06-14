@@ -41,6 +41,7 @@ export class DeviceCardComponent implements OnInit {
     this.deviceService.setAutoMode(this.device.type, this.device.id, this.autoMode).subscribe( (resp: any) => {
       this.stateLoded = true;
       this.autoMode = resp.auto;
+      this.state = resp.d.s;
     }, this.errorHandler);
   }
 
