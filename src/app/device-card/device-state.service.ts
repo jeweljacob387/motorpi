@@ -23,4 +23,11 @@ export class DeviceStateService {
       retry(5)
     );
   }
+
+  setAutoMode(type, id, auto) {
+    return this.http.post(`${this.apiBaseUrl}/setautomode/${type}/${id}`, { auto }).pipe(
+      timeout(2500),
+      retry(5)
+    );
+  }
 }

@@ -13,8 +13,11 @@
         </div>
     </mat-card-content>
     <mat-card-actions>
-        <mat-slide-toggle color="warn" [(ngModel)]="state" (change)="onStateChange()" [disabled]="!stateLoded">
+        <mat-slide-toggle color="warn" [(ngModel)]="state" (change)="onStateChange()" [disabled]="!stateLoded || autoMode">
             Click to turn {{state ? 'Off' : 'On'}} the {{device.type}}
+        </mat-slide-toggle>
+        <mat-slide-toggle color="primary" [(ngModel)]="autoMode" (change)="onAutoModeChange()" [disabled]="!stateLoded">
+            Click to turn {{autoMode ? 'Off' : 'On'}} the Auto Mode of {{device.type}}
         </mat-slide-toggle>
     </mat-card-actions>
 </mat-card>

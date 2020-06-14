@@ -15,12 +15,14 @@ export class DeviceCardComponent implements OnInit {
   @Input()
   device: Device;
   state: boolean;
+  autoMode: boolean;
   stateLoded = false;
 
   constructor(private deviceService: DeviceStateService, public matDialog: MatDialog) { }
 
   ngOnInit(): void {
     this.deviceService.getDeviceState(this.device.type, this.device.id).subscribe((resp: any) => {
+      this.autoMode = resp.auto;
       this.state = resp.d.s;
       this.stateLoded = true;
     }, this.errorHandler);
@@ -31,6 +33,14 @@ export class DeviceCardComponent implements OnInit {
     this.deviceService.setDeviceState(this.device.type, this.device.id, this.state).subscribe((resp: any) => {
       this.stateLoded = true;
       this.state = resp.d.s;
+    }, this.errorHandler);
+  }
+
+  onAutoModeChange() {
+    this.stateLoded = false;
+    this.deviceService.setAutoMode(this.device.type, this.device.id, this.autoMode).subscribe( (resp: any) => {
+      this.stateLoded = true;
+      this.autoMode = resp.auto;
     }, this.errorHandler);
   }
 
